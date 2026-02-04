@@ -1,6 +1,6 @@
 package id.ac.ui.cs.advprog.eshop.repository;
 
-import id.ui.ac.id.advprog.eshop.model.Product;
+import id.ac.ui.cs.advprog.eshop.model.Product;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -13,16 +13,15 @@ import java.util.List;
  */
 @Repository
 public class ProductRepository {
-    private List<Product> productData = new ArrayList<>();
+    private final List<Product> productData = new ArrayList<>();
 
     /**
      * Creates and adds a new product to the repository.
+     *
      * @param product the product to be added
-     * @return the added product
      */
-    public Product create(Product product) {
+    public void create(Product product) {
         productData.add(product);
-        return product;
     }
 
     /**
