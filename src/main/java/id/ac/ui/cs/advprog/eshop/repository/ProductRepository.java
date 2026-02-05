@@ -63,4 +63,22 @@ public class ProductRepository {
         existing.setProductQuantity(updatedProduct.getProductQuantity());
         return existing;
     }
+
+    /**
+     * Deletes a product from the repository by its ID.
+     *
+     * @param productId the ID of the product to delete
+     * @return true if the product was deleted, false if not found
+     */
+    public boolean delete(String productId) {
+        Iterator<Product> iterator = productData.iterator();
+        while (iterator.hasNext()) {
+            Product product = iterator.next();
+            if (productId != null && productId.equals(product.getProductId())) {
+                iterator.remove();
+                return true;
+            }
+        }
+        return false;
+    }
 }
