@@ -33,6 +33,8 @@ dependencies {
     annotationProcessor("org.projectlombok:lombok")
     testImplementation("org.springframework.boot:spring-boot-starter-thymeleaf-test")
     testImplementation("org.springframework.boot:spring-boot-starter-webmvc-test")
+    testImplementation("org.seleniumhq.selenium:selenium-java:4.27.0")
+    testImplementation("io.github.bonigarcia:webdrivermanager:5.9.2")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
