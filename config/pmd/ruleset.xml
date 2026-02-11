@@ -29,6 +29,7 @@
     <rule ref="category/java/design.xml">
         <exclude name="LawOfDemeter"/>
         <exclude name="LoosePackageCoupling"/>
+        <exclude name="UseUtilityClass"/>
     </rule>
 
     <!-- Error Prone -->

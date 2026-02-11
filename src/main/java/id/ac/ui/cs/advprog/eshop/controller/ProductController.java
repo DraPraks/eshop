@@ -17,18 +17,20 @@ import java.util.List;
 @RequestMapping({"/products", "/product"})
 public class ProductController {
 
+    private static final String PRODUCT_ATTRIBUTE = "product";
+
     @Autowired
     private ProductService service;
 
     @GetMapping("/create")
     public String createProductPage(Model model) {
         Product product = new Product();
-        model.addAttribute("product", product);
+        model.addAttribute(PRODUCT_ATTRIBUTE, product);
         return "createProduct";
     }
 
     @PostMapping("/create")
-    public String createProduct(@ModelAttribute("product") Product product, Model model) {
+    public String createProduct(@ModelAttribute(PRODUCT_ATTRIBUTE) Product product, Model model) {
         service.create(product);
         return "redirect:list";
     }
@@ -46,12 +48,12 @@ public class ProductController {
         if (product == null) {
             return "redirect:/products/list";
         }
-        model.addAttribute("product", product);
+        model.addAttribute(PRODUCT_ATTRIBUTE, product);
         return "editProduct";
     }
 
     @PostMapping("/edit")
-    public String editProduct(@ModelAttribute("product") Product product) {
+    public String editProduct(@ModelAttribute(PRODUCT_ATTRIBUTE) Product product) {
         service.update(product.getProductId(), product);
         return "redirect:/products/list";
     }
