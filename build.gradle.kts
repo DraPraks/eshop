@@ -1,8 +1,16 @@
 plugins {
     java
     jacoco
+    pmd
     id("org.springframework.boot") version "4.0.2"
     id("io.spring.dependency-management") version "1.1.7"
+}
+
+pmd {
+    isConsoleOutput = true
+    toolVersion = "7.0.0-rc4"
+    ruleSets = listOf()
+    ruleSetFiles = files("config/pmd/ruleset.xml")
 }
 
 group = "id.ac.ui.cs.advprog"
